@@ -1,5 +1,6 @@
 /**
- * SplitTest, Real User Monitoring client
+ * SplitTest, A library for creating and persisting splits
+ * for A/B testing
  */
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
