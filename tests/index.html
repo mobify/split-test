@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tests</title>
+
+        <!-- QUnit -->
+        <link rel="stylesheet" href="/tests/lib/qunit/qunit.css">
+        <script src="/tests/lib/qunit/qunit.js"></script>
+        <script>
+            QUnit.config.autostart = false;
+        </script>
+
+        <!-- Load Grog.js -->
+        <script src="/split-test.js"></script>
+
+        <!-- Bootstrap Tests -->
+        <script src="/tests/tests.js"></script>
+
+        <script>
+            QUnit.start();
+        </script>
+    </head>
+    <body>
+        <!-- QUnit UI -->
+        <div id="qunit"></div>
+        <div id="qunit-fixture"></div>
+
+        <div id="fixtures">
+            <!-- Fixtures Go Here -->
+        </div>
+    </body>
+</html>
