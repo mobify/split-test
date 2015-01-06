@@ -35,7 +35,7 @@
     };
 
     /**
-     * SplitTest.init({}) allows you to enter split paramters and
+     * SplitTest.init({}) allows you to enter split parameters and
      * probabilities. Sets the current split value only
      * if a current split is not in effect.
      * Total probability will be normalized to 1.
