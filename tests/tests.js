@@ -1,10 +1,10 @@
 (function(){
 
-    test("SplitTest Exists", function() {
-        ok(typeof window.SplitTest !== "undefined", "SplitTest Exists");
+    test('SplitTest Exists', function() {
+        ok(typeof window.SplitTest !== 'undefined', 'SplitTest Exists');
     });
 
-    test("SplitTest.init()", function() {
+    test('SplitTest.init()', function() {
         var split = SplitTest.init({
             'A': 0.5,
             'B': 0.5,
@@ -13,13 +13,14 @@
             namespace: 'mobify'
         });
         var splitValue = split.getValue();
-        ok(split instanceof SplitTest, "SplitTest.init() returns instance of SplitTest")
-        ok(splitValue === "A" || splitValue === "B");
+        ok(split instanceof SplitTest, 'SplitTest.init() returns instance of SplitTest');
+        ok(splitValue === 'A' || splitValue === 'B');
         ok(splitValue === split.getValue());
     });
 
-    test('SplitTest.Utils.randomChoice() works', function() {
-        var randomChoice = SplitTest.Utils.randomChoice;
+    test('SplitTest.randomChoice() works', function() {
+        var i;
+        var randomChoice = SplitTest.randomChoice;
 
         // 70:30 between 'A' and 'B'
         var splits = {
@@ -32,7 +33,7 @@
         };
         var numExperiments = 1000;
 
-        for (var i = 0; i < numExperiments; i++) {
+        for (i = 0; i < numExperiments; i++) {
             counts[randomChoice(splits)]++;
         }
 
@@ -60,7 +61,7 @@
             'C': 0
         };
 
-        for (var i = 0; i < numExperiments; i++) {
+        for (i = 0; i < numExperiments; i++) {
             counts[randomChoice(splits)]++;
         }
 
@@ -80,21 +81,21 @@
         );
     });
 
-    test("getValue always returns a previous set value.", function(){
+    test('getValue always returns a previous set value.', function(){
         var values = {
-            "D": 5,
+            'D': 5
         }
         var split = SplitTest.init(values, {namespace: 'foo'});
 
         // New SplitTest with the same namespace
-        var values = {
-            "A": 5,
-            "B": 5,
-            "C": 0
+        values = {
+            'A': 5,
+            'B': 5,
+            'C': 0
         };
         var split = SplitTest.init(values, {namespace: 'foo'});
         var choice = split.getValue();
-        ok(choice === "D");
+        ok(choice === 'D');
         ok(choice === split.getValue());
     });
 })();
