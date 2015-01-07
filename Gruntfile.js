@@ -29,8 +29,9 @@ module.exports = function(grunt) {
 
     // load npm tasks
     var npmTasks = [
-        'grunt-contrib-qunit',
-        'grunt-express',
+        'grunt-mocha-phantomjs',
+        'grunt-contrib-connect',
+        'grunt-contrib-watch',
         'grunt-contrib-copy',
         'grunt-contrib-uglify'
     ];
@@ -41,9 +42,8 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.loadNpmTasks('grunt-express');
-    grunt.loadNpmTasks('grunt-contrib-qunit');
     grunt.registerTask('build', ['lint:dev', 'copy', 'uglify']);
-    grunt.registerTask('test', ['express', 'qunit']);
-    grunt.registerTask('serve', ['express', 'express-keepalive']);
+    grunt.registerTask('test', ['build', 'connect:test', 'mocha_phantomjs']);
+    grunt.registerTask('test:browser', ['build', 'connect:test:keepalive']);
+    grunt.registerTask('serve', ['build', 'connect:server', 'watch']);
 };

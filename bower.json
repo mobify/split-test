@@ -1,0 +1,17 @@
+{
+  "name": "split-test",
+  "version": "0.0.1",
+  "description": "An A/B split test library for persisting split choices",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "requirejs": "~2.1.15"
+  }
+}
