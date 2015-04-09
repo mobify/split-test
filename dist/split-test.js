@@ -35,7 +35,7 @@
     };
 
     /**
-     * SplitTest.init({}) allows you to enter split parameters and
+     * Allows you to enter split parameters and
      * probabilities. Sets the current split value only
      * if a current split is not in effect.
      * Total probability will be normalized to 1.
@@ -56,18 +56,20 @@
     };
 
     /**
-     * SplitTest.setValue allows you to explictly set the split value
-     * '' (the empty string) is the default state. It will be overriden
-     * by calls to randomSplit() for example.
+     * Allows you to explicitly set the split value.
+     * '' (the empty string) is the default state. It will be overridden
+     * by calls to randomChoice(), for example.
      *
      */
-    SplitTest.prototype.setValue = function(value) {
+    SplitTest.prototype.setChoice = SplitTest.prototype.setValue = function(value) {
         // Splits are stored for 30 days.
         SplitTest.setCookie(this.cookieName, value, this.cookieDomain);
     };
 
-    /* SplitTest.getSplit returns the current split */
-    SplitTest.prototype.getValue = function() {
+    /**
+     * Returns the current split stored in the cookie
+     */
+    SplitTest.prototype.getChoice = SplitTest.prototype.getValue = function() {
         var splitValue = SplitTest.getCookie(this.cookieName);
 
         if (splitValue) {
@@ -79,8 +81,8 @@
     };
 
     /**
-     * SplitTest.randomChoice returns a random choice from
-     * the given values where values is a dictionary of (option, weight)
+     * Returns a random choice from the given values
+     * where values is a dictionary of (option, weight)
      */
     SplitTest.randomChoice = function(values) {
         var choices = [];
@@ -105,7 +107,7 @@
     };
 
     /**
-     * SplitTest.getCookie reads a cookie with the given name.
+     * Reads a cookie with the given name.
      */
     SplitTest.getCookie = function(name) {
         var cookieRe = new RegExp(name + '=([^;]+)');
@@ -115,7 +117,7 @@
     };
 
     /**
-     * SplitTest.setCookie sets a cookie with the given name and value.
+     * Sets a cookie with the given name and value.
      * If a lifetime value is given, the expiry will be set to lifetime
      * seconds in the future. Otherwise, the expiry is 30 days.
      *
