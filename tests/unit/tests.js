@@ -150,5 +150,29 @@ define([
                 assert.equal(choice, split.getValue());
             });
         });
+
+        describe('getChoice function aliases getValue', function() {
+            it('returns the same value on successive calls', function() {
+                var choice;
+                var values = {
+                    'D': 5
+                };
+
+                var split = SplitTest.init(values, {namespace: 'foo'});
+
+                // New SplitTest with the same namespace
+                values = {
+                    'A': 5,
+                    'B': 5,
+                    'C': 0
+                };
+                split = SplitTest.init(values, {namespace: 'foo'});
+
+                choice = split.getChoice();
+
+                assert.equal(choice, 'D');
+                assert.equal(choice, split.getChoice());
+            });
+        });
     });
 });

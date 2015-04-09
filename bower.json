@@ -1,6 +1,6 @@
 {
   "name": "split-test",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "An A/B split test library for persisting split choices",
   "license": "MIT",
   "private": true,

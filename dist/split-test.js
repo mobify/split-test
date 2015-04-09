@@ -61,13 +61,13 @@
      * by calls to randomSplit() for example.
      *
      */
-    SplitTest.prototype.setValue = function(value) {
+    SplitTest.prototype.setChoice = SplitTest.prototype.setValue = function(value) {
         // Splits are stored for 30 days.
         SplitTest.setCookie(this.cookieName, value, this.cookieDomain);
     };
 
     /* SplitTest.getSplit returns the current split */
-    SplitTest.prototype.getValue = function() {
+    SplitTest.prototype.getChoice = SplitTest.prototype.getValue = function() {
         var splitValue = SplitTest.getCookie(this.cookieName);
 
         if (splitValue) {
