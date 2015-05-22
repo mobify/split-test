@@ -1,14 +1,89 @@
 # split-test
 
-A support library to simplify split testing.
+A support library to simplify split testing. We have a repository of working examples you can reference in https://github.com/mobify/adaptivejs-split-test-examples
 
-## How to install
+## Quickstart
 
-    $ npm install
+Install `split-test` using bower:
 
-Check if everything works by running the tests:
+    $ bower install split-test --save
 
-    $ grunt test
+### Defining a split condition
+
+```js
+var splitTest = SplitTest.init(
+	{
+		'A': 0.4,
+		'B': 0.5,
+		'C': 0.1
+	},
+	{
+		namespace: 'foo'
+	}
+);
+```
+
+### Obtaining the split value
+
+```js
+splitTest.getChoice();
+```
+
+## Methods
+
+### `init`
+
+Adds a script to a custom container.
+
+| Parameter name | Type | Description |
+|----------------|-------------|-----|
+| **value** | Object | The split condition |
+| **options** | Object | The setup parameters |
+
+```js
+var splitTest = SplitTest.init(
+	{
+		'A': 0.4,
+		'B': 0.5,
+		'C': 0.1
+	},
+	{
+		namespace: 'foo',
+		cookieDomain: 'http://www.foo.com',
+		lifetime: 15
+	}
+);
+```
+**Available options**
+
+| Options | Type | Description |
+|----------------|-------------|------|
+| **namespace** | String | The namespace of the cookie to prevent conflict between cookie names |
+| **cookieDomain** | String | The domain of this cookie. Default to the hostname |
+| **lifetime** | Integer | The lifetime of the cookie. Default to 30 days. |
+
+### `getChoice`
+
+Returns the split choice key.
+
+```js
+// This returns either 'A', 'B', or 'C'
+var choice = splitTest.getChoice();
+```
+### `setChoice`
+
+Manually sets the split choice.
+
+| Parameter name | Type | Description |
+|----------------|-------------|-----------|
+| **value** | String | split choice key |
+
+```js
+splitTest.setChoice('C');
+
+// This return 'C'
+splitTest.getChoice();
+```
 
 ## How to create and ship a change
 
