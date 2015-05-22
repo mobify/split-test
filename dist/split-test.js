@@ -17,7 +17,8 @@
     }
 }(this, function() {
 
-    var DEFAULT_LIFETIME = 30 * 24 * 3600;
+    // 30 Days in milliseconds into the future
+    var DEFAULT_LIFETIME = 30 * 24 * 3600 * 1000;
 
     var SplitTest = function(values, options) {
         options = options || {};
@@ -49,7 +50,7 @@
      *      "B": 0.9
      *  }, {
      *      namespace: "mobify",
-     *      lifetime: 15*24*3600 // 15 days in seconds
+     *      lifetime: 15*24*3600*1000 // 15 days in milliseconds
      *  });
      *
      *  splitVal = split.getValue();
@@ -130,11 +131,9 @@
         var now = (+expires); //type coerce to timestamp
 
         if (lifetime > 0) {
-            // Lifetime (seconds) in to the future
-            expires.setTime(now + lifetime * 1000);
+            expires.setTime(now + lifetime);
         } else {
-            // 30 Days in to the future
-            expires.setTime(now + DEFAULT_LIFETIME * 1000);
+            expires.setTime(now + DEFAULT_LIFETIME);
         }
         document.cookie = name + '=' + value + '; expires=' +
         expires.toGMTString() + '; path=/; ' + (domain && domain !== 'localhost' ? 'domain=' + domain : '');
