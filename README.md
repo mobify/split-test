@@ -60,7 +60,7 @@ var splitTest = SplitTest.init(
 |----------------|-------------|------|
 | **namespace** | String | The namespace of the cookie to prevent conflict between cookie names |
 | **cookieDomain** | String | The domain of this cookie. Default to the hostname |
-| **lifetime** | Integer | The lifetime of the cookie. Default to 30 days. |
+| **lifetime** | Integer (milliseconds) | The lifetime of the cookie. Default to 30 days. |
 
 ### `getChoice`
 
