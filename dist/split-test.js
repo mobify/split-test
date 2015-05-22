@@ -25,6 +25,7 @@
         }
 
         this.cookieDomain = options.cookieDomain || window.location.hostname;
+        this.lifetime = options.lifetime || 0;
 
         var splitValue = this.getValue();
 
@@ -62,8 +63,7 @@
      *
      */
     SplitTest.prototype.setChoice = SplitTest.prototype.setValue = function(value) {
-        // Splits are stored for 30 days.
-        SplitTest.setCookie(this.cookieName, value, this.cookieDomain);
+        SplitTest.setCookie(this.cookieName, value, this.cookieDomain, this.lifetime);
     };
 
     /**
