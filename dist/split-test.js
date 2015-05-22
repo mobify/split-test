@@ -17,6 +17,8 @@
     }
 }(this, function() {
 
+    var DEFAULT_LIFETIME = 30 * 24 * 3600;
+
     var SplitTest = function(values, options) {
         options = options || {};
         this.cookieName = 'split';
@@ -25,7 +27,7 @@
         }
 
         this.cookieDomain = options.cookieDomain || window.location.hostname;
-        this.lifetime = options.lifetime || 0;
+        this.lifetime = options.lifetime || DEFAULT_LIFETIME;
 
         var splitValue = this.getValue();
 
@@ -132,7 +134,7 @@
             expires.setTime(now + lifetime * 1000);
         } else {
             // 30 Days in to the future
-            expires.setTime(now + 30 * 24 * 3600 * 1000);
+            expires.setTime(now + DEFAULT_LIFETIME * 1000);
         }
         document.cookie = name + '=' + value + '; expires=' +
         expires.toGMTString() + '; path=/; ' + (domain && domain !== 'localhost' ? 'domain=' + domain : '');

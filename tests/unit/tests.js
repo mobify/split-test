@@ -36,7 +36,7 @@ define([
             });
 
             it('sets lifetime to default with no options', function() {
-                assert.equal(split.lifetime, 0);
+                assert.equal(split.lifetime, 2592000);
             });
         });
 
