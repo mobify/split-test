@@ -36,7 +36,7 @@ define([
             });
 
             it('sets lifetime to default with no options', function() {
-                assert.equal(split.lifetime, 2592000000);
+                assert.equal(split.lifetime, 2592000);
             });
         });
 
@@ -45,7 +45,7 @@ define([
                 split = SplitTest.init({'A': 0.5, 'B': 0.5, 'C': 0}, {
                     namespace: 'foo',
                     cookieDomain: 'http://www.foo.com',
-                    lifetime: 15
+                    lifetime: 15000
                 });
             });
 

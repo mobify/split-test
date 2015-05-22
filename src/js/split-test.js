@@ -28,7 +28,7 @@
         }
 
         this.cookieDomain = options.cookieDomain || window.location.hostname;
-        this.lifetime = options.lifetime || DEFAULT_LIFETIME;
+        this.lifetime = (options.lifetime || DEFAULT_LIFETIME) / 1000;
 
         var splitValue = this.getValue();
 
@@ -131,9 +131,9 @@
         var now = (+expires); //type coerce to timestamp
 
         if (lifetime > 0) {
-            expires.setTime(now + lifetime);
+            expires.setTime(now + lifetime * 1000);
         } else {
-            expires.setTime(now + DEFAULT_LIFETIME);
+            expires.setTime(now + DEFAULT_LIFETIME * 1000);
         }
         document.cookie = name + '=' + value + '; expires=' +
         expires.toGMTString() + '; path=/; ' + (domain && domain !== 'localhost' ? 'domain=' + domain : '');
