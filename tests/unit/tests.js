@@ -34,13 +34,18 @@ define([
             it('sets cookieDomain to default with no options', function() {
                 assert.equal(split.cookieDomain, window.location.hostname);
             });
+
+            it('sets lifetime to default with no options', function() {
+                assert.equal(split.lifetime, 2592000);
+            });
         });
 
         describe('init function with options', function() {
             beforeEach(function() {
                 split = SplitTest.init({'A': 0.5, 'B': 0.5, 'C': 0}, {
                     namespace: 'foo',
-                    cookieDomain: 'http://www.foo.com'
+                    cookieDomain: 'http://www.foo.com',
+                    lifetime: 15000
                 });
             });
 
@@ -50,6 +55,10 @@ define([
 
             it('sets cookieDomain to custom value with domain option', function() {
                 assert.equal(split.cookieDomain, 'http://www.foo.com');
+            });
+
+            it('sets lifetime to custom value with lifetime option', function() {
+                assert.equal(split.lifetime, 15);
             });
         });
 
