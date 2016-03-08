@@ -4,9 +4,9 @@ A support library to simplify split testing. We have a repository of working exa
 
 ## Quickstart
 
-Install `split-test` using bower:
+Install `split-test` using npm:
 
-    $ bower install split-test --save
+    $ npm install split-test --save-dev
 
 ### Defining a split condition
 

@@ -32,8 +32,6 @@ module.exports = function(grunt) {
         'grunt-mocha-phantomjs',
         'grunt-contrib-connect',
         'grunt-contrib-watch',
-        'grunt-contrib-copy',
-        'grunt-contrib-uglify'
     ];
 
     npmTasks.forEach(function(taskName) {
@@ -42,8 +40,7 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.registerTask('build', ['lint:dev', 'copy', 'uglify']);
-    grunt.registerTask('test', ['build', 'connect:test', 'mocha_phantomjs']);
+    grunt.registerTask('test', ['connect:test', 'mocha_phantomjs', 'lint:dev']);
     grunt.registerTask('test:browser', ['build', 'connect:test:keepalive']);
     grunt.registerTask('serve', ['build', 'connect:server', 'watch']);
 };

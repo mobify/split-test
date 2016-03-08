@@ -3,7 +3,7 @@ require.config({
     paths: {
         'chai': 'node_modules/chai/chai',
         'mocha': 'node_modules/mocha/mocha',
-        'split-test': 'dist/split-test'
+        'split-test': 'src/split-test'
     },
     'shim': {
         'mocha': {
