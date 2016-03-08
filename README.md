@@ -4,22 +4,22 @@ A support library to simplify split testing. We have a repository of working exa
 
 ## Quickstart
 
-Install `split-test` using bower:
+Install `split-test` using npm:
 
-    $ bower install split-test --save
+    $ npm install split-test --save-dev
 
 ### Defining a split condition
 
 ```js
 var splitTest = SplitTest.init(
-	{
-		'A': 0.4,
-		'B': 0.5,
-		'C': 0.1
-	},
-	{
-		namespace: 'foo'
-	}
+    {
+        'A': 0.4,
+        'B': 0.5,
+        'C': 0.1
+    },
+    {
+        namespace: 'foo'
+    }
 );
 ```
 
@@ -42,16 +42,16 @@ Adds a script to a custom container.
 
 ```js
 var splitTest = SplitTest.init(
-	{
-		'A': 0.4,
-		'B': 0.5,
-		'C': 0.1
-	},
-	{
-		namespace: 'foo',
-		cookieDomain: 'http://www.foo.com',
-		lifetime: 15
-	}
+    {
+        'A': 0.4,
+        'B': 0.5,
+        'C': 0.1
+    },
+    {
+        namespace: 'foo',
+        cookieDomain: 'http://www.foo.com',
+        lifetime: 15
+    }
 );
 ```
 **Available options**
@@ -91,18 +91,11 @@ splitTest.getChoice();
 * Ensure the tests still work (`grunt test`)
 * Get your change reviewed and :+1:'ed
 
-## Roadmap
-
-(tbd)
 
 ## Changelog
 
-* 2014-09-22: Initial commit
-
-## Glossary
-
-* `Split testing`: todo
-* `Split condition`: todo
+* 1.0.0: Remove bower dependencies and dist folder, distribute on npm
+* 0.0.1: Initial commit
 
 ## Where to get help
 

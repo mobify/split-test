@@ -5,19 +5,20 @@
     "type": "git",
     "url": "https://github.com/mobify/split-test"
   },
-  "version": "0.1.2",
+  "version": "1.0.0",
   "devDependencies": {
     "grunt": "~0.4.0",
-    "grunt-contrib-connect": "^0.9.0",
-    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-connect": "0.9.0",
+    "grunt-contrib-copy": "0.4.1",
     "grunt-contrib-jshint": "0.10.0",
-    "grunt-contrib-uglify": "~0.9.1",
-    "grunt-contrib-watch": "^0.6.1",
+    "grunt-contrib-uglify": "0.9.1",
+    "grunt-contrib-watch": "0.6.1",
     "grunt-jscs": "0.7.1",
-    "grunt-mocha-phantomjs": "^0.6.0",
+    "grunt-mocha-phantomjs": "0.6.0",
     "mobify-code-style": "1.0.0",
-    "mocha": "~1.14.0",
-    "chai": "~1.9.0"
+    "mocha": "1.14.0",
+    "requirejs": "2.1.15",
+    "chai": "1.9.0"
   },
   "license": "MIT"
 }
