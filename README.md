@@ -98,11 +98,7 @@ splitTest.getChoice();
 ## Changelog
 
 * 2014-09-22: Initial commit
-
-## Glossary
-
-* `Split testing`: todo
-* `Split condition`: todo
+* 1.1.3: Remove bower and dist folder
 
 ## Where to get help
 
